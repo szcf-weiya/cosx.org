@@ -58,7 +58,7 @@ OS: Windows 7 64-bit
   
 R: 2.13.1 32-bit
 
-在 R 中，每一个 numeric 数 占用 8 Bytes，所以可以估算到 x 和 y 只是占用 5000000  _7_ 8 / 1024 ^ 2 Bytes = 267 MB，离运行的电脑的内存 2 GB 差很远。问题在于，运行 `lm()` 函数会生成很多额外的变量塞满内存。比如说拟合值和残差。
+在 R 中，每一个 numeric 数 占用 8 Bytes，所以可以估算到 x 和 y 只是占用 5000000  \*7\* 8 / 1024 ^ 2 Bytes = 267 MB，离运行的电脑的内存 2 GB 差很远。问题在于，运行 `lm()` 函数会生成很多额外的变量塞满内存。比如说拟合值和残差。
 
 如果我们只是关心回归的系数，我们可以直接用矩阵运算来计算 `$\hat{\beta}$` ：
 
@@ -115,7 +115,7 @@ gc();
 
 由于 `$X=(x_0,x_1,…,x_p)$`，所以 `$X’X$` 可以表达为：
 
-`$$%  \left(\begin{array}{cccc}\mathbf{x_{0}'x_{0}} & \mathbf{x_{0}'x_{1}} & \ldots & \mathbf{x_{0}'x_{p}}\\\mathbf{x_{1}'x_{0}} & \mathbf{x_{1}'x_{1}} & \ldots & \mathbf{x_{1}'x_{p}}\\\vdots & \vdots & \ddots & \vdots\\\mathbf{x_{p}'x_{0}} & \mathbf{x_{p}'x_{1}} & \ldots & \mathbf{x_{p}'x_{p}}\end{array}\right) %$$`
+`$$  \left(\begin{array}{cccc}\mathbf{x_{0}'x_{0}} & \mathbf{x_{0}'x_{1}} & \ldots & \mathbf{x_{0}'x_{p}}\\\mathbf{x_{1}'x_{0}} & \mathbf{x_{1}'x_{1}} & \ldots & \mathbf{x_{1}'x_{p}}\\\vdots & \vdots & \ddots & \vdots\\\mathbf{x_{p}'x_{0}} & \mathbf{x_{p}'x_{1}} & \ldots & \mathbf{x_{p}'x_{p}}\end{array}\right) $$`
 
 而每一个矩阵元素都可以用 SQL 来计算，比如说：
 
